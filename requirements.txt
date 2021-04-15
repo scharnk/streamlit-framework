@@ -6,4 +6,3 @@ altair
 bokeh
 requests
 alpha_vantage
-os
