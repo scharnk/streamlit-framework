@@ -6,3 +6,4 @@ altair
 pandas_bokeh
 requests
 alpha_vantage
+os
