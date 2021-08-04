@@ -15,9 +15,10 @@ from bokeh.plotting import figure, show
 # ts = TimeSeries(key, output_format='pandas')
 
 # for streamlit sharing deployment
-# key = os.environ["API_KEY"] == st.secrets["API_KEY"]
 key = st.secrets["API_KEY"]
-st.title(key)
+st.write(
+    "Has environment variable been set?:",
+    os.environ["API_KEY"] == st.secrets["API_KEY"])
 # key = st.secrets.API_KEY
 ts = TimeSeries(key, output_format='pandas')
 
