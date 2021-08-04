@@ -68,7 +68,7 @@ with test:
 with dataset:
     st.header("Stock Market Data For: '{}'".format(ticker))
     st.text('Data visualization constructed with Bokeh, from hourly intraday stock data')
-    g1_col, g2_col = st.beta_columns(2)
+    # g1_col, g2_col = st.beta_columns(2)
     p = figure(title="The Highs and Lows of: '{}'".format(ticker), x_axis_type='datetime', x_axis_label='Date', y_axis_label='Value (USD)')
     p.line(date, y, legend_label="Max / day (USD)", line_width=2)
     p.line(date, x, color= "red", legend_label="Min / day (USD)", line_width=2)
