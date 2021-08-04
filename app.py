@@ -16,8 +16,8 @@ from bokeh.plotting import figure, show
 
 # for streamlit sharing deployment
 # key = os.environ["API_KEY"] == st.secrets["API_KEY"]
-# key = st.secrets["API_KEY"]
-key = st.secrets.API_KEY
+key = st.secrets["API_KEY"]
+# key = st.secrets.API_KEY
 ts = TimeSeries(key, output_format='pandas')
 
 # streamlit secrets management url:
