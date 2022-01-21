@@ -26,9 +26,9 @@ ts = TimeSeries(key, output_format='pandas')
 # https://www.notion.so/Secrets-Management-730c82af2fc048d383d668c4049fb9bf
 
 ############################### STREAMLIT ######################################
-header = st.beta_container()
-dataset = st.beta_container()
-features = st.beta_container()
+header = st.container()
+dataset = st.container()
+# features = st.container()
 test = st.sidebar.beta_container()
 
 with header:
