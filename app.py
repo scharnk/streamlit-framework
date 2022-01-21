@@ -29,7 +29,7 @@ ts = TimeSeries(key, output_format='pandas')
 header = st.container()
 dataset = st.container()
 # features = st.container()
-test = st.sidebar.beta_container()
+test = st.sidebar.container()
 
 with header:
     st.title('Stock Ticker Milestone Project')
