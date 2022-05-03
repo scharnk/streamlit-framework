@@ -40,7 +40,9 @@ with test:
     st.title('Select Features')
     st.text("Type the name of a stock ticker")
     ticker = st.text_input("(i.e. 'AARP', 'AMZN', 'MSFT', 'GOOG', etc.)", 'GOOG')
-    data, meta = ts.get_daily_adjusted(ticker, outputsize='full')
+#     data, meta = ts.get_daily_adjusted(ticker, outputsize='full')
+#   daily_adjusted has been turned into a premium product since writing this code
+    data, meta = ts.get_daily(ticker, outputsize='full')
 
     display1 = ('January','February','March','April','May','June','July','August','September','October','November','December')
     options1 = list(range(len(display1)))
@@ -48,7 +50,8 @@ with test:
     monthh = st.selectbox('MONTH:', options1, format_func=lambda x: display1[x])
     MONTH = monthh+1
 
-    cols = ['open','high','low','close','adj_close','volume','divedend','split_coeff']
+#     cols = ['open','high','low','close','adj_close','volume','divedend','split_coeff']
+    cols = ['open','high','low','close','volume']
     data.columns = cols
     data['day'] = data.index.date
     data['time'] = data.index.time
