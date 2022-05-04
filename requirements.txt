@@ -3,6 +3,6 @@ streamlit
 plotly
 python-dotenv
 altair
-pandas_bokeh
+pandas_bokeh==2.4.1
 requests
 alpha_vantage
