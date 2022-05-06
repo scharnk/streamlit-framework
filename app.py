@@ -17,10 +17,12 @@ from bokeh.plotting import figure, show, curdoc
 
 # for streamlit sharing deployment
 key = st.secrets["API_KEY"]
-st.write(
-    "Has environment variable been set?:",
-    os.environ["API_KEY"] == st.secrets["API_KEY"])
-# key = st.secrets.API_KEY
+
+# CHECK FOR ENV VARIABLE BEING SET:
+# st.write(
+#     "Has environment variable been set?:",
+#     os.environ["API_KEY"] == st.secrets["API_KEY"])
+
 ts = TimeSeries(key, output_format='pandas')
 
 # streamlit secrets management url:
@@ -44,8 +46,8 @@ st.markdown("""
 
 with header:
     st.title('Stock Ticker Milestone Project')
-    st.header('Stock data acquired via the Alpha Vantage API')
-    st.subheader('App was originally deployed using Heroku, now solely on Streamlit')    
+    st.subheader('Stock data acquired via the Alpha Vantage API')
+    st.write('App was originally deployed using Heroku, now solely on Streamlit')    
 
 with test:
     st.title('Select Features')
@@ -85,8 +87,7 @@ with test:
 with dataset:
     st.header("Stock Market Data for '{}' in {}".format(ticker, YEAR))
     st.text('Data visualization constructed with Bokeh, from hourly intraday stock data')
-    # g1_col, g2_col = st.beta_columns(2)
-    st.write("## ")
+    st.write("##")
     
  
     p = figure(title="The Highs and Lows of '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date (month/day)', y_axis_label='Value (USD)')
@@ -102,13 +103,7 @@ with dataset:
     p.xaxis.major_label_text_font_size = "14pt"
     p.yaxis.major_label_text_font_size = "14pt"
     
-#     st.bokeh_chart(p, use_container_width=True)
-
-    
-    # templates can refer to a configured name value
-#     plot = figure(name="bokeh_jinja_figure")
-    curdoc().theme = 'dark_minimal'
-    curdoc().add_root(p)
+    st.bokeh_chart(p, use_container_width=True)
 
 
 
