@@ -75,15 +75,20 @@ with dataset:
     st.text('Data visualization constructed with Bokeh, from hourly intraday stock data')
     # g1_col, g2_col = st.beta_columns(2)
     st.write("#")
+    
     p = figure(title="The Highs and Lows of: '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date', y_axis_label='Value (USD)')
+    
     p.line(date, y, legend_label="Max / day (USD)", line_width=2)
     p.line(date, x, color= "red", legend_label="Min / day (USD)", line_width=2)
+    
     p.title.text_font_size = '22pt'
+    p.legend.label_text_font_size = "16pt"
+    
     p.xaxis.axis_label_text_font_size = "16pt"
     p.yaxis.axis_label_text_font_size = "16pt"
-#     plot.legend.label_text_font_size = "16pt"
-    plot.xaxis.major_label_text_font_size = "12pt"
-    plot.yaxis.major_label_text_font_size = "12pt"
+    p.xaxis.major_label_text_font_size = "12pt"
+    p.yaxis.major_label_text_font_size = "12pt"
+    
     st.bokeh_chart(p, use_container_width=True)
 
 
