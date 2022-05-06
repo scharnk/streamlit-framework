@@ -32,10 +32,20 @@ dataset = st.container()
 # features = st.container()
 test = st.sidebar.container()
 
+st.markdown("""
+<style>
+.big-font {
+    font-size:300px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
+
 with header:
     st.title('Stock Ticker Milestone Project')
-    st.text('Stock data acquired via the Alpha Vantage API')
-    st.text('App deployed using Heroku')
+    st.header('Stock data acquired via the Alpha Vantage API')
+    st.subheader('App was originally deployed using Heroku, now solely on Streamlit')    
 
 with test:
     st.title('Select Features')
@@ -69,17 +79,16 @@ with test:
     x = US_daily_market['low']
     y = US_daily_market['high']
 
-    st.empty()
-    st.write("##")
+    st.empty(st.write("###"))
     
 with dataset:
-    st.header("Stock Market Data For: '{}' in {}".format(ticker, YEAR))
+    st.header("Stock Market Data for '{}' in {}".format(ticker, YEAR))
     st.text('Data visualization constructed with Bokeh, from hourly intraday stock data')
     # g1_col, g2_col = st.beta_columns(2)
-    st.write("#")
+    st.write("## ")
     
     curdoc().theme = 'dark_minimal'    
-    p = figure(title="The Highs and Lows of: '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date (month/day)', y_axis_label='Value (USD)')
+    p = figure(title="The Highs and Lows of '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date (month/day)', y_axis_label='Value (USD)')
 
     p.line(date, y, legend_label="Max / day (USD)", line_width=2)
     p.line(date, x, color= "red", legend_label="Min / day (USD)", line_width=2)
@@ -92,7 +101,11 @@ with dataset:
     p.xaxis.major_label_text_font_size = "14pt"
     p.yaxis.major_label_text_font_size = "14pt"
     
-    st.bokeh_chart(p, use_container_width=True)
+#     st.bokeh_chart(p, use_container_width=True)
+    
+    # put the button and plot in a layout and add to the document
+#     curdoc().add_root(column(button, p))
+    curdoc().add_root(p, use_containter_width=True)
 
 
 ################################################################################
