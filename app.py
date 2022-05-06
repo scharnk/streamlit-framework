@@ -69,6 +69,7 @@ with test:
     y = US_daily_market['high']
 
     st.write("##")
+    st.write("##")
     
 with dataset:
     st.header("Stock Market Data For: '{}' in {}".format(ticker, YEAR))
@@ -76,12 +77,12 @@ with dataset:
     # g1_col, g2_col = st.beta_columns(2)
     st.write("#")
     
-    p = figure(title="The Highs and Lows of: '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date', y_axis_label='Value (USD)')
+    p = figure(title="The Highs and Lows of: '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date (month/day)', y_axis_label='Value (USD)')
     
     p.line(date, y, legend_label="Max / day (USD)", line_width=2)
     p.line(date, x, color= "red", legend_label="Min / day (USD)", line_width=2)
     
-    p.title.text_font_size = '22pt'
+    p.title.text_font_size = '24pt'
     p.legend.label_text_font_size = "16pt"
     
     p.xaxis.axis_label_text_font_size = "16pt"
