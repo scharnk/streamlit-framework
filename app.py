@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from alpha_vantage.timeseries import TimeSeries
 import pandas_bokeh
 from bokeh.plotting import figure, show
+from bokeh.io import curdoc
 
 ################################ GET DATA ######################################
 
@@ -68,7 +69,7 @@ with test:
     x = US_daily_market['low']
     y = US_daily_market['high']
 
-    st.write("##")
+    st.empty()
     st.write("##")
     
 with dataset:
@@ -77,18 +78,19 @@ with dataset:
     # g1_col, g2_col = st.beta_columns(2)
     st.write("#")
     
+    curdoc().theme = 'dark_minimal'    
     p = figure(title="The Highs and Lows of: '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date (month/day)', y_axis_label='Value (USD)')
-    
+
     p.line(date, y, legend_label="Max / day (USD)", line_width=2)
     p.line(date, x, color= "red", legend_label="Min / day (USD)", line_width=2)
     
-    p.title.text_font_size = '24pt'
+    p.title.text_font_size = '22pt'
     p.legend.label_text_font_size = "16pt"
     
     p.xaxis.axis_label_text_font_size = "16pt"
     p.yaxis.axis_label_text_font_size = "16pt"
-    p.xaxis.major_label_text_font_size = "12pt"
-    p.yaxis.major_label_text_font_size = "12pt"
+    p.xaxis.major_label_text_font_size = "14pt"
+    p.yaxis.major_label_text_font_size = "14pt"
     
     st.bokeh_chart(p, use_container_width=True)
 
