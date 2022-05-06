@@ -79,7 +79,8 @@ with test:
     x = US_daily_market['low']
     y = US_daily_market['high']
 
-    st.empty(st.write("###"))
+#     st.empty()
+    st.write("#")
     
 with dataset:
     st.header("Stock Market Data for '{}' in {}".format(ticker, YEAR))
