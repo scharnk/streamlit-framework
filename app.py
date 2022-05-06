@@ -34,20 +34,20 @@ dataset = st.container()
 # features = st.container()
 test = st.sidebar.container()
 
-st.markdown("""
-<style>
-.big-font {
-    font-size:300px !important;
-}
-</style>
-""", unsafe_allow_html=True)
+# st.markdown("""
+# <style>
+# .big-font {
+#     font-size:300px !important;
+# }
+# </style>
+# """, unsafe_allow_html=True)
 
 # st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
 
 with header:
     st.title('Stock Ticker Milestone Project')
     st.subheader('Stock data acquired via the Alpha Vantage API')
-    st.write('App was originally deployed using Heroku, now solely on Streamlit')    
+    st.text('App was originally deployed using Heroku, now solely on Streamlit')    
 
 with test:
     st.title('Select Features')
