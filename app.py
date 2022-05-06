@@ -71,7 +71,7 @@ with test:
     st.write("##")
     
 with dataset:
-    st.header("Stock Market Data For: '{}' in {}, {}".format(ticker, YEAR))
+    st.header("Stock Market Data For: '{}' in {}".format(ticker, YEAR))
     st.text('Data visualization constructed with Bokeh, from hourly intraday stock data')
     # g1_col, g2_col = st.beta_columns(2)
     st.write("#")
