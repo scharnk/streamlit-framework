@@ -4,8 +4,8 @@ import os
 from dotenv import load_dotenv
 from alpha_vantage.timeseries import TimeSeries
 import pandas_bokeh
-from bokeh.plotting import figure, show
-from bokeh.io import curdoc
+from bokeh.plotting import figure, show, curdoc
+
 
 ################################ GET DATA ######################################
 
@@ -88,7 +88,7 @@ with dataset:
     # g1_col, g2_col = st.beta_columns(2)
     st.write("## ")
     
-    curdoc().theme = 'dark_minimal'    
+ 
     p = figure(title="The Highs and Lows of '{}' in {}".format(ticker, YEAR), x_axis_type='datetime', x_axis_label='Date (month/day)', y_axis_label='Value (USD)')
 
     p.line(date, y, legend_label="Max / day (USD)", line_width=2)
@@ -103,10 +103,13 @@ with dataset:
     p.yaxis.major_label_text_font_size = "14pt"
     
 #     st.bokeh_chart(p, use_container_width=True)
+
     
-    # put the button and plot in a layout and add to the document
-#     curdoc().add_root(column(button, p))
-    curdoc().add_root(p, use_containter_width=True)
+    # templates can refer to a configured name value
+#     plot = figure(name="bokeh_jinja_figure")
+    curdoc().theme = 'dark_minimal'
+    curdoc().add_root(p)
+
 
 
 ################################################################################
